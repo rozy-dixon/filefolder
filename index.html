@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Folder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- STATIC -->
+    <h1 class="title">File Folder</h1>
+    <div id="buttons">
+        <!-- TRAVERSE FILES -->
+        <button id="files" onclick="selectFile()">files</button>
+        <!-- FILE INPUTS -->
+        <button id="insert" onclick="selectFileType()">new file</button>
+        <!-- buttons for easy styling, hidden file inputs clicked instead -->
+        <button class="insert" id="audio" onclick="uploadFile('audio')">audio</button>
+        <input type="file" id="audio-input" name="file-input" style="display: none;" accept=".wav, .mp3">
+        <button class="insert" id="document" onclick="uploadFile('document')">document</button>
+        <input type="file" id="document-input" name="file-input" style="display: none;" accept=".pdf">
+        <button class="insert" id="image" onclick="uploadFile('image')">image</button>
+        <input type="file" id="image-input" name="file-input" style="display: none;" accept=".jpg, .jpeg, .png, .webp, .gif">
+        <button class="insert" id="text" onclick="uploadFile('text')">text</button>
+        <input type="file" id="text-input" name="file-input" style="display: none;" accept=".txt, .md">
+        <button class="insert" id="video" onclick="uploadFile('video')">video</button>
+        <input type="file" id="video-input" name="file-input" style="display: none;" accept=".mp4, .mov">
+        <!-- STYLE SELECTIONS -->
+        <button id="styles" onclick="selectStyles()">styles</button>
+        <button class="styles" id="background-color" onclick="changeColor('background-color')">background</button>
+        <input type="color" id="background-color-input" name="color-input" value="#ffffff" style="display: none;">
+        <button class="styles" id="text-color" onclick="changeColor('text-color')">text</button>
+        <input type="color" id="text-color-input" name="color-input" value="#000000" style="display: none;">
+        <button class="styles" id="primary-color" onclick="changeColor('primary-color')">primary</button>
+        <input type="color" id="primary-color-input" name="color-input" value="#7188ff" style="display: none;">
+        <button class="styles" id="secondary-color" onclick="changeColor('secondary-color')">secondary</button>
+        <input type="color" id="secondary-color-input" name="color-input" value="#ff7686" style="display: none;">
+        <!-- PROJECT SELECTIONS -->
+        <button id="save" onclick="selectSave()">save folder</button>
+        <button class="save" id="save-html">.html</button>
+        <button class="save" id="save-rozy">.rozy</button>
+        <button id="upload" onclick="selectUpload()">upload folder</button>
+        <button class="upload" id="upload-html">.html</button>
+        <button class="upload" id="upload-rozy">.rozy</button>
+    </div>
+    <div id="folder-files"></div>
+    <!-- SCRIPTS -->
+    <script>
+        // ------------------------------------------------------------------------------ VARIABLES
+
+        // console logs
+        const bad = "color: #c088ae; font-size: 1.25em;"
+        const good = "color: #cfd1af; font-size: 1.25em;"
+        // files in open folder project
+        // object example: { name: file.name, type: file.type, content: file, src: file.src, text: 'text', links: [ [ 0, 'text', 'destination' ], [ 1, 'text', 'destination' ] ] }
+        var folderFiles = []
+        // elements
+        var filesButtons = document.getElementsByClassName('files')
+        const folderFilesList = document.getElementById("folder-files")
+    </script>
+    <script src="script.js"></script>
+    <script src="fileuploads.js"></script>
+    <script src="engine.js"></script>
+    <script>
+        // -------------------------------------------------------------------------- FUNCTIONALITY
+        
+        // listen for change to buttons, as signal that file folder project has been changed
+        const observer = new MutationObserver(selectFromFiles)
+        const config = { attributes: true, childList: true, subtree: true }
+        observer.observe(folderFilesList, config)
+        //observer.disconnect()
+    </script>
+</body>
+</html>

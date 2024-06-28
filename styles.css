@@ -1,0 +1,82 @@
+/* --------------------------------------------------------------------------------------- FONTS */
+
+@font-face {
+    font-family: assistant;
+    src: url(./assets/Assistant/static/Assistant-Regular.ttf);
+}
+
+@font-face {
+    font-family: assistantBold;
+    src: url(./assets/Assistant/static/Assistant-Bold.ttf);
+}
+
+/* -------------------------------------------------------------------------------------- BASICS */
+
+:root {
+    /* font styles/family */
+    --regular: assistant;
+    --bold: assistantBold;
+    /* font sizes */
+    --small: 16px;
+    --large: 40px;
+    /* colors */
+    --background: #fff;
+    --text: #000;
+    --primary100: #7188ff;
+    --primary65: #7188ff65;
+    --secondary100: #ff7686;
+    --secondary65: #ff768665;
+}
+
+body {
+    font-family: var(--regular);
+    color: var(--text);
+    margin: 24px 32px;
+    padding: 0px;
+    /* disable highlight */
+    /* src = https://stackoverflow.com/questions/826782/how-to-disable-text-selection-highlighting */
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+/* -------------------------------------------------------------------------------------- STATIC */
+
+.title {
+    font-family: var(--bold);
+    font-size: var(--large);
+    margin: 0px;
+    padding: 0px;
+}
+
+/* ------------------------------------------------------------------------------------- BUTTONS */
+
+button {
+    /* default display */
+    display: inline;
+    /* visuals */
+    font-size: var(--small);
+    padding: 6px 12px;
+    border-radius: 16.25px;
+    border: 1px, solid, var(--text);
+    background-color: var(--primary65);
+    margin: 0px 2px 6px 0px;
+}
+
+button:hover {
+    background-color: var(--primary100);
+}
+
+.insert, .styles, .save, .upload {
+    /* selected display */
+    display: none;
+    /* visuals */
+    background-color: transparent;
+}
+
+#folder-files button {
+    display: none;
+}
