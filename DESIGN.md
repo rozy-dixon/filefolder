@@ -28,3 +28,9 @@ object: name, file,
 - [ ] stretch **file reorg**
 - [ ] **no file, display message**
 - [ ] **custom color popup**
+- [ ] **exit or reload popup**
+- [ ] **test play**
+- [ ] **play from html**
+- [ ] **play from rozy**
+- [ ] **rename**
+- [ ] **disable h1 spell check**

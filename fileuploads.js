@@ -98,20 +98,36 @@ function receiveImage() {
         button.textContent = file.name
         folderFilesList.appendChild(button)
         // fileNode buttons
+        var del = document.createElement("button")
+        del.textContent = 'delete'
+        del.className = 'small-button'
+        var replace = document.createElement("button")
+        replace.textContent = 'replace content'
+        replace.className = 'small-button'
+        var nodeButtons = document.createElement("div")
+        nodeButtons.append(del)
+        nodeButtons.append(replace)
+        nodeButtons.className = 'node-buttons'
+        var add = document.createElement("button")
+        add.textContent = '+ new'
         // fileNode elements (image already created)
         var heading = document.createElement("h1")
         heading.textContent = name
+        heading.contentEditable = true
         var captioning = document.createElement("textarea")
         captioning.textContent = 'insert text here...'
         captioning.addEventListener('input', autoResize, false)
+        // assemble content and functionality
         var functionalDiv = document.createElement("div")
         functionalDiv.append(heading)
         functionalDiv.append(captioning)
+        functionalDiv.append(add)
         functionalDiv.className = 'functionality'
         var fileContentDiv = document.createElement("div")
         fileContentDiv.append(image)
+        fileContentDiv.append(nodeButtons)
         fileContentDiv.className = 'file-content'
-        // assemble div
+        // assemble total div
         var nodeDiv = document.createElement("div")
         nodeDiv.className = 'file-node'
         nodeDiv.id = name + 'node'

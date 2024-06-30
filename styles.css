@@ -112,9 +112,15 @@ button:hover {
 }
 
 .functionality h1 {
-    margin: 0px 0px 10px 0px;
+    margin: 0px 0px 16px 0px;
     font-family: var(--bold);
     font-size: var(--medium);
+    word-break: break-all;
+    text-decoration: none;
+}
+
+.functionality h1:focus {
+    outline: none;
 }
 
 .functionality textarea {
@@ -123,8 +129,25 @@ button:hover {
     box-sizing: border-box;
     outline-style: none;
     resize: none;
-    margin: 0px;
+    margin: 0px 0px 16px 0px;
     padding: 0px;
     width: 100%;
     border: none;
+    height: 1rem;
+    word-break: break-word;
+}
+
+.small-button {
+    border: none;
+    background-color: #00000000;
+}
+
+.small-button:hover {
+    border: none;
+    background-color: #00000000;
+    text-decoration: underline;
+}
+
+.node-buttons {
+    float: right;
 }
