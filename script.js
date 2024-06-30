@@ -19,7 +19,7 @@ const secondaryColorInput = document.getElementById("secondary-color-input")
 // attatching event listeners
 backgroundColorInput.addEventListener("input", backgroundColorChange, false)
 backgroundColorInput.select()
-root.style.setProperty('--background')
+//root.style.setProperty('--background')
 
 // ---------------------------------------------------------------------------------------- BUTTONS
 

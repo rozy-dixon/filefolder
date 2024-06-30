@@ -37,6 +37,15 @@ function selectFileType() {
     } else { for (let i = 0; i < insertButtons.length; i++) { insertButtons[i].style.display = 'none' } }
 }
 
+// ------------------------------------------------------------------------------- HELPER FUNCTIONS
+
+// listen for textarea autoresize
+// src = https://www.geeksforgeeks.org/how-to-create-auto-resize-textarea-using-javascript-jquery/
+function autoResize() {
+    this.style.height = 'auto';
+    this.style.height = this.scrollHeight + 'px';
+}
+
 // ---------------------------------------------------------------------- FILE UPLOAD FUNCTIONALITY
 
 // accept files
@@ -71,19 +80,44 @@ function receiveImage() {
     if (imageInput.files.length != 1) { console.log("%c" + "input 1 file", bad)
     } else if (!validFileType(file) || !file.type.startsWith('image')) { console.log("%c" + "invalid file type", bad)
     } else {
-        // read in file
+        // --------------------------------------------------------------------------- TAKE IN FILE
+        // read in file onto new image
+        var image = document.createElement("img")
         var name = file.name
-        var type = file.type
-        var content = file
-        var src = URL.createObjectURL(file)
-        var txt = ''
+        var type = image.type = file.type
+        var content = image.content = file
+        var src = image.src = URL.createObjectURL(file)
+        var txt = `${name}`
         var links = []
         // create object
         folderFiles.push({ name: name, type: type, content: content, src: src, txt: txt, links: links })
+        // -------------------------------------------------------------- FUNCITONALITY AND DISPLAY
+        // button
         var button = document.createElement("button")
         button.className = 'files'
         button.textContent = file.name
         folderFilesList.appendChild(button)
+        // fileNode buttons
+        // fileNode elements (image already created)
+        var heading = document.createElement("h1")
+        heading.textContent = name
+        var captioning = document.createElement("textarea")
+        captioning.textContent = 'insert text here...'
+        captioning.addEventListener('input', autoResize, false)
+        var functionalDiv = document.createElement("div")
+        functionalDiv.append(heading)
+        functionalDiv.append(captioning)
+        functionalDiv.className = 'functionality'
+        var fileContentDiv = document.createElement("div")
+        fileContentDiv.append(image)
+        fileContentDiv.className = 'file-content'
+        // assemble div
+        var nodeDiv = document.createElement("div")
+        nodeDiv.className = 'file-node'
+        nodeDiv.id = name + 'node'
+        nodeDiv.append(fileContentDiv)
+        nodeDiv.append(functionalDiv)
+        document.body.append(nodeDiv)
     }
     imageInput.files = null
 }
