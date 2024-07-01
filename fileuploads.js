@@ -115,7 +115,7 @@ function receiveImage() {
         heading.textContent = name
         heading.contentEditable = true
         var captioning = document.createElement("textarea")
-        captioning.textContent = 'insert text here...'
+        captioning.placeholder = 'insert text here...'
         captioning.addEventListener('input', autoResize, false)
         // assemble content and functionality
         var functionalDiv = document.createElement("div")

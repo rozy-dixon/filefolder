@@ -22,16 +22,18 @@
     --large: 40px;
     /* colors */
     --background: #fff;
-    --text: #000;
+    --text100: #000;
+    --text65: #00000065;
     --primary100: #7188ff;
     --primary65: #7188ff65;
     --secondary100: #ff7686;
     --secondary65: #ff768665;
+    --transparent: #00000000;
 }
 
 body {
     font-family: var(--regular);
-    color: var(--text);
+    color: var(--text100);
     margin: 24px 32px;
     padding: 0px;
     /* disable highlight */
@@ -62,7 +64,7 @@ button {
     font-size: var(--small);
     padding: 6px 12px;
     border-radius: 16.25px;
-    border: 1px, solid, var(--text);
+    border: 1px, solid, var(--text100);
     background-color: var(--primary65);
     margin: 0px 2px 6px 0px;
 }
@@ -94,15 +96,18 @@ button:hover {
 .file-content {
     margin: 0px;
     padding: 0px;
-    width: 60%;
+    width: 58%;
+    margin: 0px 2% 0px 0px;
 }
 
 .file-content img {
     display: block;
-    margin: 0px 10px 0px 0px;
     padding: 0px;
     max-width: 100%;
     float: right;
+    /* disable drag (disables any click) */
+    /* src = https://stackoverflow.com/questions/12906789/preventing-an-image-from-being-draggable-or-selectable-without-using-js */
+    pointer-events: none;
 }
 
 .functionality {
@@ -137,14 +142,20 @@ button:hover {
     word-break: break-word;
 }
 
+.functionality textarea::placeholder {
+    color: var(--text65)
+}
+
 .small-button {
+    margin: 8px 0px 0px 16px;
+    padding: 0px;
     border: none;
-    background-color: #00000000;
+    background-color: var(--transparent);
 }
 
 .small-button:hover {
     border: none;
-    background-color: #00000000;
+    background-color: var(--transparent);
     text-decoration: underline;
 }
 

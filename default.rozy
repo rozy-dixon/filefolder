@@ -1,0 +1,17 @@
+Rozy get ready ~
+
+How to write a .rozy file
+Anything in parenthesis are comments
+"Rozy" starts a function. Built-ins are get ready, set, and go, which are written in-between their squigglies
+: sets up variables
+The get ready function will always be entirely ignored
+
+~~~
+
+Rozy set ~
+
+~~~
+
+Rozy go ~
+
+~~~

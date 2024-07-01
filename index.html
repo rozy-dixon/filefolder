@@ -8,41 +8,56 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- STATIC -->
+    <!-- ------------------------------------------------------------------------------- STATIC -->
     <h1 class="title">File Folder</h1>
     <div id="buttons">
-        <!-- TRAVERSE FILES -->
+        <!-- ------------------------------------------------------------------- TRAVERSE FILES -->
         <button id="files" onclick="selectFile()">files</button>
-        <!-- FILE INPUTS -->
+
+        <!-- ---------------------------------------------------------------------- FILE INPUTS -->
         <button id="insert" onclick="selectFileType()">new file</button>
+
         <!-- buttons for easy styling, hidden file inputs clicked instead -->
         <button class="insert" id="audio" onclick="uploadFile('audio')">audio</button>
         <input type="file" id="audio-input" name="file-input" style="display: none;" accept=".wav, .mp3">
+
         <button class="insert" id="document" onclick="uploadFile('document')">document</button>
         <input type="file" id="document-input" name="file-input" style="display: none;" accept=".pdf">
+
         <button class="insert" id="image" onclick="uploadFile('image')">image</button>
         <input type="file" id="image-input" name="file-input" style="display: none;" accept=".jpg, .jpeg, .png, .webp, .gif">
+
         <button class="insert" id="text" onclick="uploadFile('text')">text</button>
         <input type="file" id="text-input" name="file-input" style="display: none;" accept=".txt, .md">
+
         <button class="insert" id="video" onclick="uploadFile('video')">video</button>
         <input type="file" id="video-input" name="file-input" style="display: none;" accept=".mp4, .mov">
-        <!-- STYLE SELECTIONS -->
+
+        <!-- ----------------------------------------------------------------- STYLE SELECTIONS -->
         <button id="styles" onclick="selectStyles()">styles</button>
+
         <button class="styles" id="background-color" onclick="changeColor('background-color')">background</button>
         <input type="color" id="background-color-input" name="color-input" value="#ffffff" style="display: none;">
+
         <button class="styles" id="text-color" onclick="changeColor('text-color')">text</button>
         <input type="color" id="text-color-input" name="color-input" value="#000000" style="display: none;">
+
         <button class="styles" id="primary-color" onclick="changeColor('primary-color')">primary</button>
         <input type="color" id="primary-color-input" name="color-input" value="#7188ff" style="display: none;">
+
         <button class="styles" id="secondary-color" onclick="changeColor('secondary-color')">secondary</button>
         <input type="color" id="secondary-color-input" name="color-input" value="#ff7686" style="display: none;">
-        <!-- PROJECT SELECTIONS -->
+
+        <!-- --------------------------------------------------------------- PROJECT SELECTIONS -->
         <button id="save" onclick="selectSave()">save folder</button>
         <button class="save" id="save-html">.html</button>
-        <button class="save" id="save-rozy">.rozy</button>
+        <button class="save" id="save-rozy" onclick="saveRozy()">.rozy</button>
+
         <button id="upload" onclick="selectUpload()">upload folder</button>
         <button class="upload" id="upload-html">.html</button>
         <button class="upload" id="upload-rozy">.rozy</button>
+
+        <button id="play" onclick="playFileFolder()">play</button>
     </div>
     <div id="folder-files"></div>
     <!-- SCRIPTS -->

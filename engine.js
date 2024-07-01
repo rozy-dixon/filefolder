@@ -35,3 +35,9 @@ function selectUpload() {
     if (uploadVisibility) { for (let i = 0; i < uploadButtons.length; i++) { uploadButtons[i].style.display = 'inline-block' }
     } else { for (let i = 0; i < uploadButtons.length; i++) { uploadButtons[i].style.display = 'none' } }
 }
+
+// ----------------------------------------------------------------------------------- SAVE OPTIONS
+
+function saveRozy() {
+    console.log(getComputedStyle(root).getPropertyValue('--primary100'))
+}
